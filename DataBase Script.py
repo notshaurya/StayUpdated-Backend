@@ -1,7 +1,6 @@
 import gspread
 import requests
 import time
-from threading import Timer
 
 topHeadlinesURL = 'https://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=3d0174f321ba406daf5daa0f48d5c724'
 businessURL = 'https://newsapi.org/v2/top-headlines?country=in&pageSize=100&category=business&apiKey=3d0174f321ba406daf5daa0f48d5c724'
