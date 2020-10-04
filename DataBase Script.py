@@ -1,5 +1,6 @@
 import gspread
 import requests
+import time
 from threading import Timer
 
 topHeadlinesURL = 'https://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=3d0174f321ba406daf5daa0f48d5c724'
@@ -41,7 +42,7 @@ def mainCall():
     dataInput('science', scienceURL)
     dataInput('sports', sportsURL)
     dataInput('technology', technologyURL)
-    Timer(1260, mainCall).start()
 
-
-mainCall()
+for x in range(72):
+    mainCall()
+    time.sleep(1260)
