@@ -22,12 +22,12 @@ def dataInput(sheetName, url):
     final.append(header)
     for item in topHeadlines['articles']:
         tl = []
-        tl.append(item['title'])
-        tl.append(item['description'])
-        tl.append(item['source']['name'])
-        tl.append(item['urlToImage'])
-        tl.append(item['url'])
-        tl.append(item['publishedAt'])
+        tl.append(item['title']) if item['title'] !=None else tl.append("No Title Available")
+        tl.append(item['description']) if item['description'] !=None else tl.append("No Description Available")
+        tl.append(item['source']['name'])  if item['source']['name'] !=None else tl.append("Unknown")
+        tl.append(item['urlToImage']) if item['urlToImage'] !=None else tl.append("https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg")
+        tl.append(item['url']) if item['url'] !=None else tl.append("https://news.google.com/topstories?gl=IN&hl=en-IN&ceid=IN:en")
+        tl.append(item['publishedAt']) if item['publishedAt'] !=None else tl.append("2020-00-00T00:00:00Z")
         final.append(tl)
     db.clear()
     db.append_rows(final)
@@ -41,6 +41,7 @@ def mainCall():
     dataInput('science', scienceURL)
     dataInput('sports', sportsURL)
     dataInput('technology', technologyURL)
+
 
 for x in range(72):
     mainCall()
